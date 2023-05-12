@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
   s.summary     = "Azure OpenAI Service API Ruby Gem"
   s.description = "Azure OpenAI APIs for completions and search"
   s.license     = "MIT"
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 2.5"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
 

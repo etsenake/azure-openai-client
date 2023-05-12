@@ -11,5 +11,5 @@ OpenAPI Generator version: 6.6.0
 =end
 
 module AzureOpenaiClient
-  VERSION = '0.0.2'
+  VERSION = '0.0.3'
 end

@@ -8,6 +8,7 @@ additionalProperties:
   gemAuthor: "Josh Etsenake"
   gemAuthorEmail: "josh.etsenake@fullscript.com"
   hideGenerationTimestamp: true
+  gemRequiredRubyVersion: ">= 2.5"
 gitUserId: etsenake
 gitRepoId: azure-openai-client
 globalProperties:
