@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Josh Etsenake"]
   s.email       = ["josh.etsenake@fullscript.com"]
-  s.homepage    = "https://github.com/etsenake/"
+  s.homepage    = "https://github.com/etsenake/azure-openai-client"
   s.summary     = "Azure OpenAI Service API Ruby Gem"
   s.description = "Azure OpenAI APIs for completions and search"
   s.licenses    = ["MIT"]
