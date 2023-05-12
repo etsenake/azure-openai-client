@@ -27,7 +27,6 @@ docs/EmbeddingsCreateRequest.md
 docs/EmbeddingsCreateRequestInput.md
 docs/ErrorResponse.md
 docs/ErrorResponseError.md
-git_push.sh
 lib/azure_openai_client.rb
 lib/azure_openai_client/api/default_api.rb
 lib/azure_openai_client/api_client.rb
