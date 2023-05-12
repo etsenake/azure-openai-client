@@ -36,8 +36,8 @@ jobs:
           restore-keys: |
             bundle-${{ matrix.ruby }}-${{ hashFiles('**/*.gemspec') }}-${{ hashFiles('**/Gemfile') }}
             bundle-${{ matrix.ruby }}-
-      - name: Upgrade Bundler to 2.0 (for older Rubies)
-        run: gem install bundler -v '~> 2.0'
+      - name: Install Bundler
+        run: gem install bundler
       - name: Bundle install
         run: |
           bundle config path vendor/bundle
