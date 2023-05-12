@@ -8,4 +8,4 @@ script:
   - bundle install --path vendor/bundle
   - bundle exec rspec
   - gem build azure_openai_client.gemspec
-  - gem install ./azure_openai_client-1.0.0.gem
+  - gem install ./azure_openai_client-0.0.2.gem

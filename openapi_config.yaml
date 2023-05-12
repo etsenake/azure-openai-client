@@ -7,7 +7,7 @@ additionalProperties:
   gemHomepage: "https://github.com/etsenake/azure-openai-client"
   gemAuthor: "Josh Etsenake"
   gemAuthorEmail: "josh.etsenake@fullscript.com"
-  hideGenerationTimestamp: false
+  hideGenerationTimestamp: true
 gitUserId: etsenake
 gitRepoId: azure-openai-client
 globalProperties:
