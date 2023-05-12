@@ -8,8 +8,8 @@ RSpec.describe AzureOpenaiClient::Configuration do
   describe '#initialize' do
     it 'sets default values' do
       expect(config.scheme).to eq('https')
-      expect(config.host).to eq('{endpoint}')
-      expect(config.base_path).to eq('https://{endpoint}/openai')
+      expect(config.host).to eq('your-resource-name.openai.azure.com')
+      expect(config.base_path).to eq('/openai')
       expect(config.api_key).to eq({})
       expect(config.api_key_prefix).to eq({})
       expect(config.timeout).to eq(0)
@@ -57,7 +57,7 @@ RSpec.describe AzureOpenaiClient::Configuration do
 
   describe '#auth_settings' do
     it 'returns the Auth Settings hash for the API client' do
-      config.api_key['api-key'] = '12345'
+      config.api_key['apiKey'] = '12345'
       config.access_token = 'token_12345'
       expect(config.auth_settings).to eq(
         'apiKey' => {

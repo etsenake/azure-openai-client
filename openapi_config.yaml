@@ -1,0 +1,14 @@
+inputSpec: inference.json
+generatorName: ruby
+outputDir: .
+additionalProperties:
+  gemName: azure_openai_client
+  gemLicense: MIT
+  gemHomepage: "https://github.com/etsenake/azure-openai-client"
+  gemAuthor: "Josh Etsenake"
+  gemAuthorEmail: "josh.etsenake@fullscript.com"
+  hideGenerationTimestamp: false
+gitUserId: etsenake
+gitRepoId: azure-openai-client
+globalProperties:
+  resolveFully: true
