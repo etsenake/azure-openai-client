@@ -12,13 +12,8 @@ RSpec.describe AzureOpenaiClient::Configuration do
       expect(config.base_path).to eq('/openai')
       expect(config.api_key).to eq({})
       expect(config.api_key_prefix).to eq({})
-      expect(config.timeout).to eq(0)
+      expect(config.timeout).to eq(60)
       expect(config.client_side_validation).to be(true)
-      expect(config.verify_ssl).to be(true)
-      expect(config.verify_ssl_host).to be(true)
-      expect(config.params_encoding).to be_nil
-      expect(config.cert_file).to be_nil
-      expect(config.key_file).to be_nil
       expect(config.debugging).to be(false)
       expect(config.inject_format).to be(false)
       expect(config.force_ending_format).to be(false)

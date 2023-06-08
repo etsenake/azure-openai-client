@@ -51,45 +51,40 @@ describe AzureOpenaiClient::ApiClient do
     end
   end
 
-  describe 'params_encoding in #build_request' do
+
+  describe 'proxy in #build_connection' do
     let(:config) { AzureOpenaiClient::Configuration.new }
     let(:api_client) { AzureOpenaiClient::ApiClient.new(config) }
+    let(:proxy_uri) { URI('http://example.org:8080') }
 
     it 'defaults to nil' do
-      expect(AzureOpenaiClient::Configuration.default.params_encoding).to eq(nil)
-      expect(config.params_encoding).to eq(nil)
+      expect(AzureOpenaiClient::Configuration.default.proxy).to be_nil
+      expect(config.proxy).to be_nil
 
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:params_encoding]).to eq(nil)
+      connection = api_client.build_connection
+      expect(connection.proxy_for_request('/test')).to be_nil
     end
 
-    it 'can be customized' do
-      config.params_encoding = :multi
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:params_encoding]).to eq(:multi)
-    end
-  end
+    it 'can be customized with a string' do
+      config.proxy = proxy_uri.to_s
 
-  describe 'timeout in #build_request' do
-    let(:config) { AzureOpenaiClient::Configuration.new }
-    let(:api_client) { AzureOpenaiClient::ApiClient.new(config) }
+      connection = api_client.build_connection
+      configured_proxy = connection.proxy_for_request('/test')
 
-    it 'defaults to 0' do
-      expect(AzureOpenaiClient::Configuration.default.timeout).to eq(0)
-      expect(config.timeout).to eq(0)
-
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:timeout]).to eq(0)
+      expect(configured_proxy).not_to be_nil
+      expect(configured_proxy.uri.to_s).to eq proxy_uri.to_s
     end
 
-    it 'can be customized' do
-      config.timeout = 100
-      request = api_client.build_request(:get, '/test')
-      expect(request.options[:timeout]).to eq(100)
+    it 'can be customized with a hash' do
+      config.proxy = { uri: proxy_uri }
+
+      connection = api_client.build_connection
+      configured_proxy = connection.proxy_for_request('/test')
+
+      expect(configured_proxy).not_to be_nil
+      expect(configured_proxy.uri).to eq proxy_uri
     end
   end
-
-
 
   describe '#deserialize' do
     it "handles Array<Integer>" do
